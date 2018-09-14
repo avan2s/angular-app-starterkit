@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FormioModule, FormioAppConfig } from 'angular-formio';
-import { FormManagerService, FormManagerConfig } from 'angular-formio/manager';
-import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
-import { FormioResources } from 'angular-formio/resource';
-import { AuthConfig, AppConfig } from '../config';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {FormioAppConfig, FormioModule} from 'angular-formio';
+import {FormManagerConfig, FormManagerService} from 'angular-formio/manager';
+import {FormioAuthConfig, FormioAuthService} from 'angular-formio/auth';
+import {FormioResources} from 'angular-formio/resource';
+import {AppConfig, AuthConfig} from '../config';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { HeroComponent } from './hero/hero.component';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
+import {HeaderComponent} from './header/header.component';
+import {HeroComponent} from './hero/hero.component';
 
 @NgModule({
   declarations: [

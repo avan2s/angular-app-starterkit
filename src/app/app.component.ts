@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormioResources } from 'angular-formio/resource';
-import { FormioAuthService } from 'angular-formio/auth';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormioResources} from 'angular-formio/resource';
+import {FormioAuthService} from 'angular-formio/auth';
+import {Formio} from 'formiojs';
+import {CustomComponent} from './custom-component';
+
+console.log(Formio);
 
 @Component({
   selector: 'app-root',
@@ -27,5 +31,8 @@ export class AppComponent {
     this.auth.onRegister.subscribe(() => {
       this.router.navigate(['/home']);
     });
+
+    // Register our custom components.
+    Formio.registerComponent('custom', CustomComponent);
   }
 }
