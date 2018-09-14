@@ -5,8 +5,6 @@ import {FormioAuthService} from 'angular-formio/auth';
 import {Formio} from 'formiojs';
 import {CustomComponent} from './custom-component';
 
-console.log(Formio);
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

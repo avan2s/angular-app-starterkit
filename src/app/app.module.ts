@@ -11,17 +11,21 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {HeroComponent} from './hero/hero.component';
+import {ButtonModule} from 'primeng/button';
+import { ComplexCustomComponent } from './complex-custom/complex-custom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    HeroComponent
+    HeroComponent,
+    ComplexCustomComponent
   ],
   imports: [
     BrowserModule,
     FormioModule,
+    ButtonModule,
     RouterModule.forRoot([
       {
         path: '',
