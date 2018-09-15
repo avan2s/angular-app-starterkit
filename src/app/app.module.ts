@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {FormioAppConfig, FormioModule} from 'angular-formio';
 import {FormManagerConfig, FormManagerService} from 'angular-formio/manager';
@@ -12,7 +12,9 @@ import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {HeroComponent} from './hero/hero.component';
 import {ButtonModule} from 'primeng/button';
-import { ComplexCustomComponent } from './complex-custom/complex-custom.component';
+import {ComplexCustomComponent} from './complex-custom/complex-custom.component';
+import {ButtonComponent} from './button/button.component';
+import {createCustomElement} from '@angular/elements';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import { ComplexCustomComponent } from './complex-custom/complex-custom.componen
     HomeComponent,
     HeaderComponent,
     HeroComponent,
-    ComplexCustomComponent
+    ComplexCustomComponent,
+    ButtonComponent
+  ],
+  entryComponents: [
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -58,12 +64,23 @@ import { ComplexCustomComponent } from './complex-custom/complex-custom.componen
     FormioResources,
     FormioAuthService,
     FormManagerService,
-    {provide: FormManagerConfig, useValue: {
-      tag: 'common'
-    }},
+    {
+      provide: FormManagerConfig, useValue: {
+        tag: 'common'
+      }
+    },
     {provide: FormioAuthConfig, useValue: AuthConfig},
     {provide: FormioAppConfig, useValue: AppConfig}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injector: Injector) {
+    const customButton = createCustomElement(ButtonComponent, {injector});
+    customElements.define('custom-button', customButton);
+  }
+
+  ngDoBootstrap() {
+  }
+
+}
