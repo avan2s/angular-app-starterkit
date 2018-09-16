@@ -25,6 +25,7 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "node_modules/@webcomponents/custom-elements/src/native-shim.js",
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
               }

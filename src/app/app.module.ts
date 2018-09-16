@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {Injector, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {FormioAppConfig, FormioModule} from 'angular-formio';
 import {FormManagerConfig, FormManagerService} from 'angular-formio/manager';
@@ -26,7 +26,7 @@ import {createCustomElement} from '@angular/elements';
     ButtonComponent
   ],
   entryComponents: [
-    ButtonComponent
+    ComplexCustomComponent
   ],
   imports: [
     BrowserModule,
@@ -72,12 +72,13 @@ import {createCustomElement} from '@angular/elements';
     {provide: FormioAuthConfig, useValue: AuthConfig},
     {provide: FormioAppConfig, useValue: AppConfig}
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(injector: Injector) {
-    const customButton = createCustomElement(ButtonComponent, {injector});
-    customElements.define('custom-button', customButton);
+  constructor(private injector: Injector) {
+    const complexCustomComponent = createCustomElement(ComplexCustomComponent, {injector: this.injector});
+    customElements.define('complex-custom', complexCustomComponent);
   }
 
   ngDoBootstrap() {

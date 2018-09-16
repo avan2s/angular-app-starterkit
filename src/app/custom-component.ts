@@ -26,7 +26,7 @@ export class CustomComponent extends BaseComponent {
     super.build();
     // Here i would like to render prime ng if possible - maybe there will be a better way...
     const ele = super.renderTemplate('<div id=\'custom\'>My simple custom component is here</div>'
-      + '<div id=\'complex\'></div><custom-button label="firstValue"></custom-button>', {});
+      + '<complex-custom></complex-custom>', {});
     const element = super.getElement();
     element.appendChild(ele);
   }
