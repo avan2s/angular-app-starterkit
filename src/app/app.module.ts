@@ -15,6 +15,9 @@ import {ButtonModule} from 'primeng/button';
 import {ComplexCustomComponent} from './complex-custom/complex-custom.component';
 import {ButtonComponent} from './button/button.component';
 import {createCustomElement} from '@angular/elements';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FistPrimeNgComponent } from './fist-prime-ng/fist-prime-ng.component';
+import {CarouselModule, ChartModule, InputSwitchModule, MessageService} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -23,15 +26,20 @@ import {createCustomElement} from '@angular/elements';
     HeaderComponent,
     HeroComponent,
     ComplexCustomComponent,
-    ButtonComponent
+    ButtonComponent,
+    FistPrimeNgComponent
   ],
   entryComponents: [
     ComplexCustomComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormioModule,
     ButtonModule,
+    CarouselModule,
+    ChartModule,
+    InputSwitchModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -63,6 +71,7 @@ import {createCustomElement} from '@angular/elements';
   providers: [
     FormioResources,
     FormioAuthService,
+    MessageService,
     FormManagerService,
     {
       provide: FormManagerConfig, useValue: {

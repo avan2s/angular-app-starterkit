@@ -1,0 +1,33 @@
+<p>
+  fist-prime-ng works!
+</p>
+<br/>
+<button pButton type="button" label="Warning" class="ui-button-warning"></button>
+<br/><br/>
+<p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+
+<p-carousel headerText="Cars" [value]="cars">
+  <ng-template let-car pTemplate="item">
+    <div class="ui-grid ui-grid-responsive">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6">Vin</div>
+        <div class="ui-grid-col-6">{{car.vin}}</div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6">Year</div>
+        <div class="ui-grid-col-6">{{car.year}}</div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6">Color</div>
+        <div class="ui-grid-col-6">{{car.color}}</div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+          <button type="button" pButton icon="pi pi-search" (click)="selectCar(car)"></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
+
+
